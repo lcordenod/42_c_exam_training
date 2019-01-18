@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/16 19:18:14 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/17 12:25:16 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/01/18 10:04:40 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/01/18 10:46:12 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+char	*repeat_alpha(char *str)
+{
+	int i;
+	char *str2;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] => 'a' && str[i] =< 'z')
+	}
+	return (str2);
+}
+
 int		main(int ac, char **av)
 {
-	int checkempty;
-	int start;
-	int end;
-
-	start = 0;
-	checkempty = 0;
-	while (av[1][checkempty])
-		checkempty++;
 	if (ac == 2)
-	{
-		while (av[1][start] == ' ' || av[1][start] == '\t')
-			start++;
-		if (start != checkempty)
-		{
-			end = start;
-			while (av[1][end] != ' ' && av[1][end] != '\t')
-			{
-				write(1, &av[1][end], 1);
-				end++;
-			}
-		}
-	}
+		repeat_alpha(av[1]);
 	write(1, "\n", 1);
 	return (0);
 }
