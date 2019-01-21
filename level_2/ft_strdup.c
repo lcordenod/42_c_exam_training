@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/20 19:17:35 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/21 10:54:06 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/01/21 13:44:22 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/01/21 13:59:28 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
-{
-	int ret;
-	int i;
-	int minus;
+#include <stdlib.h>
 
-	ret = 0;
+char	*ft_strdup(char *src)
+{
+	char	*cpy;
+	int		len;
+	int		i;
+
+	len = 0;
 	i = 0;
-	minus = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\r' || str[i] == '\t'
-	|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v')
-		i++;
-	if (str[i] == '-')
-		minus = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (src[len])
+		len++;
+	if ((cpy = (char*)malloc(sizeof(char) * (len + 1))))
 	{
-		ret = ret * 10;
-		ret += str[i] + '0';
+		free(cpy);
+		return (0);
+	}
+	while (i < len)
+	{
+		cpy[i] = src[i];
 		i++;
 	}
-	ret = ret * minus;
-	return (ret);
+	cpy[len] = '\0';
+	return (cpy);
 }

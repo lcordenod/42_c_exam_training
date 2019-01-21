@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/20 19:17:35 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/21 10:54:06 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/01/21 14:29:45 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/01/21 14:54:39 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+char	*ft_strrev(char *str)
 {
-	int ret;
-	int i;
-	int minus;
+	int		i;
+	int		j;
+	char	temp;
 
-	ret = 0;
 	i = 0;
-	minus = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\r' || str[i] == '\t'
-	|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v')
+	j = 0;
+	while (str[i])
 		i++;
-	if (str[i] == '-')
-		minus = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (j < i--)
 	{
-		ret = ret * 10;
-		ret += str[i] + '0';
-		i++;
+		temp = str[j];
+		str[j] = str[i];
+		str[i] = temp;
+		j++;
 	}
-	ret = ret * minus;
-	return (ret);
+	return (str);
 }

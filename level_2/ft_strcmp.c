@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/20 19:17:35 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/21 10:54:06 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/01/21 10:51:41 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/01/21 13:44:04 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
-	int ret;
 	int i;
-	int minus;
 
-	ret = 0;
 	i = 0;
-	minus = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\r' || str[i] == '\t'
-	|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v')
-		i++;
-	if (str[i] == '-')
-		minus = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (s1[i] && s2[i])
 	{
-		ret = ret * 10;
-		ret += str[i] + '0';
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	ret = ret * minus;
-	return (ret);
+	return (0);
 }
