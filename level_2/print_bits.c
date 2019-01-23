@@ -6,21 +6,12 @@
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 09:11:01 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/22 19:10:32 by lcordeno         ###   ########.fr       */
+/*   Updated: 2019/01/23 12:16:59 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-/*
-void	print_bits(unsigned char octet)
-{
-	int		i;
 
-	i = 8;
-	while (i--)
-		write(1, (octet & 1 << i ? "1" : "0"), 1);
-}
-*/
 void	print_bits(unsigned char octet)
 {
 	unsigned char comp;

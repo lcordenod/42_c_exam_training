@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   max.c                                              :+:      :+:    :+:   */
+/*   wdmatch.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/21 18:12:53 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/23 12:20:47 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/01/23 12:25:27 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/01/23 14:41:05 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		max(int *tab, unsigned int len)
-{
-	unsigned int	i;
-	int				max;
+#include <unistd.h>
+#include <stdio.h>
 
-	i = 1;
-	if (!tab[0])
-		return (0);
-	max = tab[0];
-	while (i < len)
+int		main(int ac, char **av)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	if (ac == 3)
 	{
-		if (tab[i] > max)
-			max = tab[i];
-		i++;
+		while (av[1][i])
+		{
+			while ((av[1][i] != av[2][j]) && av[2][j])
+				j++;
+			if (av[1][i] == av[2][j])
+				write(1, &av[1][i], 1);
+			j++;
+			i++;
+		}
 	}
-	return (max);
+	write(1, "\n", 1);
+	return (0);
 }
