@@ -6,12 +6,11 @@
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:46:57 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/25 15:29:35 by lcordeno         ###   ########.fr       */
+/*   Updated: 2019/01/25 16:28:17 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	str_uncap(char *str)
 {

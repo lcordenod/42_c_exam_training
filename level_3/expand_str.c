@@ -6,11 +6,11 @@
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 10:33:52 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/01/25 10:33:56 by lcordeno         ###   ########.fr       */
+/*   Updated: 2019/01/25 16:28:36 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-include <unistd.h>
+#include <unistd.h>
 
 int		ft_count_words(char *str)
 {
@@ -44,7 +44,7 @@ void	ft_word_to_tab(char *str)
 			str++;
 		while (*str && (*str != '\t' && *str != ' '))
 		{
-			write(1,&*str, 1);
+			write(1, &*str, 1);
 			str++;
 		}
 		if (*str != '\0' && j < i - 1)
