@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/16 17:25:10 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/02/17 13:16:08 by lcordeno         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+
 int		is_base(char c, int base)
 {
 	char	*base_min;
@@ -36,9 +51,16 @@ int		ft_atoi_base(const char *str, int str_base)
 		str++;
 	if (*str == '-')
 		minus = -1;
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 		str++;
 	while (is_base(*str, str_base))
 		ret = ret * str_base + value(*str++);
 	return (ret * minus);
+}
+
+int		main(int ac, char **av)
+{
+	if (ac >= 2)
+		printf("atoi_base = %d\n", ft_atoi_base(av[1], atoi(av[2])));
+	return (0);
 }
