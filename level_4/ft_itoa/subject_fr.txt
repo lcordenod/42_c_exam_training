@@ -9,4 +9,4 @@ char que vous devez allouer.
 
 Votre fonction sera déclarée comme suit:
 
-char	*ft_itoa(in	t nbr);
+char	*ft_itoa(int nbr);

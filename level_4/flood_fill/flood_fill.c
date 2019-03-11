@@ -6,7 +6,7 @@
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 14:15:15 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/02/25 16:44:59 by lcordeno         ###   ########.fr       */
+/*   Updated: 2019/03/11 18:50:39 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,10 @@ void	flood_fill(char **tab, t_point size, t_point begin)
 	int x;
 	char c;
 
+	if (!(tab))
+		return;
+	if (begin.x < 1 || begin.x > size.x || begin.y < 1 || begin.y > size.y)
+		return;
 	y = begin.y - 1;
 	x = begin.x - 1;
 	c = tab[y][x];
@@ -97,7 +101,7 @@ int		main(void)
 {
 	char	**area;
 	t_point size = { 8, 5 };
-	t_point begin = { 2, 2 };
+	t_point begin = { 2, 2};
 	char *zone[] = {
 		"11111111",
 		"10001001",

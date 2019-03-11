@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcordeno <lcordeno@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/14 10:50:46 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/02/14 14:03:52 by lcordeno         ###   ########.fr       */
+/*   Created: 2019/03/11 15:01:21 by lcordeno          #+#    #+#             */
+/*   Updated: 2019/03/11 15:52:35 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int     count_units(int nbr)
+int		count_units(int nb)
 {
-	int count;
+	int		count;
 
 	count = 0;
-	if (nbr < 0)
-		nbr *= -1;
-	while (nbr >= 10)
+	if (nb < 0)
+		nb *= -1;
+	while (nb >= 10)
 	{
-		nbr /= 10;
+		nb /= 10;
 		count++;
 	}
 	return (count);
@@ -30,7 +30,7 @@ int     count_units(int nbr)
 
 int		multip_unit(int unit)
 {
-	int ret;
+	int		ret;
 
 	ret = 1;
 	while (unit > 0)
@@ -41,34 +41,40 @@ int		multip_unit(int unit)
 	return (ret);
 }
 
-char    *ft_itoa(int nbr)
+char	*ft_itoa(int nbr)
 {
-	char	*ret;
-	int		div;
+	char	*str;
+	int		len;
+	int		multip;
 	int		i;
-	int		count;
 
+	len = count_units(nbr);
+	multip = multip_unit(len);
 	i = 0;
-	div = multip_unit(count_units(nbr));
-	count = count_units(nbr);
-	if (!(ret = malloc(sizeof(char) * (count_units(nbr) + 1))))
-		return (0);
 	if (nbr < 0)
+		i = 1;
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1 + i))))
+		return (0);
+	if (nbr == -2147483648)
+		str = "-2147483648\0";
+	else
 	{
-		ret[i] = '-';
-		nbr *= -1;
-		count++;
-		i++;
+		if (nbr < 0)
+		{
+			nbr *= -1;
+			str[0] = '-';
+			len++;
+		}
+		while (i <= len)
+		{
+			str[i] = (nbr / multip) + '0';
+			nbr %= multip;
+			multip /= 10;
+			i++;
+		}
+		str[len + 1] = '\0';
 	}
-	while (i <= count)
-	{
-		ret[i] = (nbr / div) + '0';
-		nbr %= div;
-		div /= 10;
-		i++;
-	}
-	ret[i] = '\0';
-	return (ret);
+	return (str);
 }
 
 int		main(int ac, char **av)
