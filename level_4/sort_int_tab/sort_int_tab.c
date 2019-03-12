@@ -6,7 +6,7 @@
 /*   By: lcordeno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 18:12:54 by lcordeno          #+#    #+#             */
-/*   Updated: 2019/03/11 19:34:43 by lcordeno         ###   ########.fr       */
+/*   Updated: 2019/03/12 09:12:33 by lcordeno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sort_int_tab(int *tab, unsigned int size)
 	while (i < size)
 	{
 		j = i;
-		while (j < size - i)
+		while (j < size - 1)
 		{
 			if (tab[j + 1] < tab[i])
 			{
